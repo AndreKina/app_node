@@ -1,0 +1,61 @@
+** JWT **
+
+* Json Web Token => Padrão de mercado que define um token no formato JSON, para troca de informações
+** Não representa o mecanismo de autenticação => é um meio para troca de informações no fluxo de autenticação
+
+** Hash composto de 3 partes => Header => Payload => Verify Signature
+
+** Header => Algoritmo + Tipo de token
+** Payload => Conteúdo do token
+** Verify Signature => Integridade do token
+
+** FS module **
+** resolve => resolve sequence of paths
+** rename => renomear ou mover arquivos
+** stat => state => file is open, unavailable, corrupted
+** unlink => remove file 
+
+** API **
+* Application Programming Interface => Interface q disponibiliza funcionalidades para serem utilizadas/consumidas
+
+** REST **
+* Representational State Transfer => Modelo de arquitetura e não linguagem ou tecnologia de programação
+* Fornece diretrizes para que os sistemas distribuídos se comuniquem usando os princípios e protocolos Web (e.g. HTTP)
+
+* Client - Server -> Cliente e servidor devem estar separados
+* Stateless -> Cada requisição deve ter o necessário para o servidor entender e responder a requisição. Servidor não dever lembrar/armazenar estados
+* Layered System -> Cliente acessa um endpoint sem precisar saber como é implementada
+
+** Tests **
+* Garantir que a lógica foi bem desenvolvida;
+* Automatizados => Ferramentas de software para automatizar processo manual
+* Tipos de Testes 
+* Jest => --watch (Running execution)
+
+** Testes de Unidade => Testa unidades individuais do código. E.g. => Testa uma função específica da aplicação;
+** Testes de Integração => Testa as unidades do código trabalhando juntas => E.g. => Testa Login que envolve uma série de etapas;
+
+* Boas Práticas
+** I - Testes simples e rápidos => Possibilita ter um feedback mais rápido possível;
+       Facilita execução de vários testes => reduz tempo necessário de criação e manutenção de scripts;
+
+** II - Testes devem ser independentes entre si;
+        Evita que uma falha em um teste acarrete uma falha em outro teste (depuração de testes);
+
+** III - Testes não devem depender de ambientes ou recursos externos (APIs, BD, etc...);
+         Teste deve ser capaz de rodar a qualquer momento, ambiente ou quantas vezes forem necessárias;
+
+* Inversão de Dependência
+** Módulos de alto nível não devem depender de módulos de baixo nível. Ambos devem depender de abstrações, abstrações não devem depender de detalhes. Detalhes devem depender de abstrações.
+** Desacoplar e diminuir a dependência entre regra de negócio e infraestrutura;
+
+** Controlando o Acoplamento
+** ** De maneira geral, será praticamente impossível criar uma aplicação onde a arquitetura seja totalmente desacoplada e abstrata, pois acoplamentos concretos sempre existirão
+** ** Saber diferenciar os acoplamentos ruins dos acoplamentos bons, pois assim modelaremos nossos sistemas fugindo dos "acoplamentos perigosos"
+
+** E.g. => Controller cuidando das requisições -> Regra de negócio com a lógica de cadastro de usuário separado
+** ** Controller => Não sabe qual é o banco de dados que está sendo utilizado
+** ** Controllers => Repositories => Services
+       (req, res)        (BD)       (Regra de Negócio)
+
+** ** Might have to create a local database for testing
